@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		ECB2A8712DF58DDD0039917C /* ThemeKit in Frameworks */ = {isa = PBXBuildFile; productRef = ECB2A8702DF58DDD0039917C /* ThemeKit */; };
+		ECB2A8A02DF613C70039917C /* TimerKit in Frameworks */ = {isa = PBXBuildFile; productRef = ECB2A89F2DF613C70039917C /* TimerKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +44,8 @@
 				Views/CardView.swift,
 				Views/DetailEditView.swift,
 				Views/DetailView.swift,
+				Views/MeetingFooterView.swift,
+				Views/MeetingHeaderView.swift,
 				Views/ScrumsView.swift,
 				Views/ThemePicker.swift,
 				Views/ThemeView.swift,
@@ -58,6 +61,8 @@
 				Views/CardView.swift,
 				Views/DetailEditView.swift,
 				Views/DetailView.swift,
+				Views/MeetingFooterView.swift,
+				Views/MeetingHeaderView.swift,
 				Views/ScrumsView.swift,
 				Views/ThemePicker.swift,
 				Views/ThemeView.swift,
@@ -94,6 +99,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ECB2A8712DF58DDD0039917C /* ThemeKit in Frameworks */,
+				ECB2A8A02DF613C70039917C /* TimerKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -155,6 +161,7 @@
 			name = Scrumdinger;
 			packageProductDependencies = (
 				ECB2A8702DF58DDD0039917C /* ThemeKit */,
+				ECB2A89F2DF613C70039917C /* TimerKit */,
 			);
 			productName = Scrumdinger;
 			productReference = ECB2A83B2DF4AD3E0039917C /* Scrumdinger.app */;
@@ -240,6 +247,7 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				ECB2A86F2DF58DDD0039917C /* XCLocalSwiftPackageReference "ThemeKit" */,
+				ECB2A89E2DF613C70039917C /* XCLocalSwiftPackageReference "TimerKit" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = ECB2A83C2DF4AD3E0039917C /* Products */;
@@ -610,12 +618,20 @@
 			isa = XCLocalSwiftPackageReference;
 			relativePath = ThemeKit;
 		};
+		ECB2A89E2DF613C70039917C /* XCLocalSwiftPackageReference "TimerKit" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = TimerKit;
+		};
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
 		ECB2A8702DF58DDD0039917C /* ThemeKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = ThemeKit;
+		};
+		ECB2A89F2DF613C70039917C /* TimerKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = TimerKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
