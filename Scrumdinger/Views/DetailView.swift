@@ -6,17 +6,19 @@
 //
 
 import SwiftUI
+import SwiftData
+
+
 
 struct DetailView: View {
-    @Binding var scrum: DailyScrum
+    let scrum: DailyScrum
     
-    @State private var editingScrum = DailyScrum.emptyScrum
     @State private var isPresentingEditView = false
     
     var body: some View {
         List {
             Section (header: Text("Meeting Info")){
-                NavigationLink( destination: MeetingView(scrum: $scrum)) {
+                NavigationLink( destination: MeetingView(scrum: scrum)) {
                     Label("Start Meeting", systemImage: "timer")
                         .font(.headline)
                         .foregroundColor(.accentColor)
@@ -44,6 +46,18 @@ struct DetailView: View {
                     Label(attendee.name, systemImage: "person")
                 }
             }
+            Section (header: Text("History")){
+                if scrum.history.isEmpty {
+                    Label("No meeting history", systemImage: "calendar.badge.exclamationmark")
+                }
+                
+                ForEach(scrum.history){ history in
+                    HStack {
+                        Image(systemName: "calendar")
+                        Text(history.date, style: .date)
+                    }
+                }
+            }
         }
         .navigationTitle(scrum.title)
         .toolbar {
@@ -53,29 +67,16 @@ struct DetailView: View {
         }
         .sheet(isPresented:  $isPresentingEditView){
             NavigationStack  {
-                DetailEditView(scrum: $editingScrum)
+                DetailEditView(scrum: scrum)
                     .navigationTitle(scrum.title)
-                    .toolbar{
-                        ToolbarItem(placement: .cancellationAction){
-                            Button ("Cancel"){
-                                isPresentingEditView = false
-                            }
-                        }
-                        ToolbarItem(placement: .confirmationAction){
-                            Button ("Done"){
-                                isPresentingEditView = false
-                                scrum = editingScrum
-                            }
-                        }
-                    }
             }
         }
     }
 }
 
-#Preview {
-    @Previewable @State var scrum = DailyScrum.sampleData[0]
+#Preview(traits: .dailyScrumsSampleData) {
+    @Previewable @Query(sort: \DailyScrum.title) var scrums: [DailyScrum]
     NavigationStack {
-        DetailView(scrum: $scrum)
+        DetailView(scrum: scrums[0])
     }
 }
